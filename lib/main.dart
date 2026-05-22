@@ -16,10 +16,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
-      // 1. Оголошуємо початковий іменований маршрут (Екран логіну)
       initialRoute: '/',
 
-      // 2. Реєструємо всі три екрани в таблиці маршрутів додатка
       routes: {
         '/': (context) => const LoginScreen(),
         '/task': (context) => const StringLengthScreen(),
@@ -29,9 +27,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// ==========================================
-// 1. ЕКРАН АВТОРИЗАЦІЇ (З ЛАБОРАТОРНОЇ №5)
-// ==========================================
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -53,7 +48,6 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       );
 
-      // Використовуємо іменований перехід на екран індивідуального завдання
       Navigator.pushReplacementNamed(context, '/task');
     }
   }
@@ -128,9 +122,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-// ==========================================
-// 2. ЕКРАН ЗАВДАННЯ (ОБЧИСЛЕННЯ ДОВЖИНИ РЯДКА)
-// ==========================================
 class StringLengthScreen extends StatefulWidget {
   const StringLengthScreen({super.key});
 
@@ -162,7 +153,6 @@ class _StringLengthScreenState extends State<StringLengthScreen> {
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
         actions: [
-          // Кнопка переходу на третій екран налаштувань для повної перевірки навігації
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
@@ -224,9 +214,6 @@ class _StringLengthScreenState extends State<StringLengthScreen> {
   }
 }
 
-// ==========================================
-// 3. ДОДАТКОВИЙ ЕКРАН НАЛАШТУВАНЬ (SETTINGS)
-// ==========================================
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
@@ -254,7 +241,6 @@ class SettingsScreen extends StatelessWidget {
           const SizedBox(height: 40),
           ElevatedButton(
             onPressed: () {
-              // Повернення назад по ієрархічному стеку навігації
               Navigator.pop(context);
             },
             style: ElevatedButton.styleFrom(
